@@ -1,0 +1,15 @@
+<div style="text-align: center;">
+  <h2>Favoris</h2>
+  <ul class="favorite-movies-list">
+    <li *ngFor="let movie of favoriteMovies" class="favorite-movie-item">
+      <a [routerLink]="['/details', movie.id]">
+        <img src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}" alt="{{ movie.title }}" />
+      </a>
+      <br>
+      <button (click)="removeFromFavorites(movie.id)">- Supprimer des favoris</button> <!-- Bouton Supprimer -->
+      <h3>{{ movie.title }}</h3>
+      <p>Release Date: {{ movie.release_date }}</p>
+      <p>Rating: {{ movie.vote_average }}</p>
+    </li>
+  </ul>
+</div>

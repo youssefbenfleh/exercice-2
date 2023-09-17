@@ -1,0 +1,11 @@
+<!-- movie-details.component.html -->
+<div *ngIf="movieDetails" style="text-align: center;">
+    <h2>Détails du film</h2>
+    <img src="https://image.tmdb.org/t/p/w300/{{ movieDetails.poster_path }}" alt="{{ movieDetails.title }}" />
+    <p>Nom du Film : {{ movieDetails.title }}</p>
+    <p>Date de sortie : {{ movieDetails.release_date }}</p>
+    <p>Vote moyen : {{ movieDetails.vote_average }}</p>
+    <p>{{ movieDetails.overview }}</p>
+    <button (click)="addToFavorites(movieDetails)">Ajouter aux favoris</button>
+  </div>
+  

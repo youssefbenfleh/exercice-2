@@ -1,0 +1,22 @@
+<div style="text-align: center;">
+    <div *ngIf="movies && movies.length > 0">
+      <h2>Popular Movies</h2>
+      <app-search (searchEvent)="performSearch($event)"></app-search>
+      <br>
+      <ul class="movie-list">
+        <li *ngFor="let movie of movies" class="movie-item">
+          <h3>{{ movie.title }}</h3>
+          <a [routerLink]="['/details', movie.id]">
+            <img src="https://image.tmdb.org/t/p/w300/{{ movie.poster_path }}" alt="{{ movie.title }}" />
+          </a>
+          <br>
+          <button (click)="addToFavorites(movie)">+ Ajouter aux favoris</button>
+          <p>Release Date: {{ movie.release_date }}</p>
+          <p>Rating: {{ movie.vote_average }}</p>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="!movies || movies.length === 0">
+      <p>No movies found or an error occurred while fetching data.</p>
+    </div>
+  </div>
